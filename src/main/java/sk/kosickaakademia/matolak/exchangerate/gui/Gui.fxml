@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.kosickaakademia.matolak.exchangerate.gui.GuiController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.kosickaakademia.matolak.exchangerate.gui.Controller">
    <children>
       <TextField layoutX="170.0" layoutY="46.0" prefHeight="26.0" prefWidth="260.0" />
       <ChoiceBox layoutX="170.0" layoutY="14.0" prefHeight="26.0" prefWidth="172.0" />
