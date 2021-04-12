@@ -1,7 +1,8 @@
 package sk.kosickaakademia.matolak.exchangerate.api;
 
-import jdk.nashorn.internal.parser.JSONParser;
+
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
