@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.kosickaakademia.matolak.exchangerate.gui.Gui">
+   <children>
+      <TextField layoutX="216.0" layoutY="101.0" />
+      <TextField editable="false" layoutX="215.0" layoutY="302.0" />
+      <ChoiceBox layoutX="226.0" layoutY="69.0" prefWidth="150.0" />
+      <ChoiceBox layoutX="226.0" layoutY="270.0" prefWidth="150.0" />
+      <Label layoutX="283.0" layoutY="47.0" text="From" />
+      <Label layoutX="293.0" layoutY="247.0" text="To" />
+      <Button layoutX="260.0" layoutY="187.0" mnemonicParsing="false" text="Exchange" />
+   </children>
+</AnchorPane>
