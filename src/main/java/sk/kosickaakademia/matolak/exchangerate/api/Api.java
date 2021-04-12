@@ -11,7 +11,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Api {
-    private static final String key  = "7f193180007ca666e168d9cd573780e6";
+    private static final String key  = "fd9c63f568efa05da69ac8f7d028cee8";
 
     public Map getExchangeRates(Set<String> rates){
         if(rates==null || rates.size() ==0)
