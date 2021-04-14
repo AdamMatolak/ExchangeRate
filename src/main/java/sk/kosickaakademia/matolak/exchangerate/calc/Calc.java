@@ -2,10 +2,7 @@ package sk.kosickaakademia.matolak.exchangerate.calc;
 
 import sk.kosickaakademia.matolak.exchangerate.api.Api;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Calc {
     private static final String[] rates= new String[]{"USD","CZK","HUF","BTC","PLN"};
@@ -32,5 +29,24 @@ public class Calc {
     }
     private void print(String from, String to, double eur, double result, double rate){
         System.out.println(eur +" "+from+" -> "+result+" "+to+" (exchange rate: "+rate+" )");
+    }
+
+    public Map<String, Double> calculate(double base_currency_eur, String[] currency) {
+        if(base_currency_eur<0){
+            System.out.println("Input param cannot be a negative value!");
+            return null;
+        }
+        Set<String> set = new HashSet<>();
+        Collections.addAll(set, currency);
+        Api apiRequest=new Api();
+        Map map = apiRequest.getExchangeRates(set);
+        Map<String,Double> values = new HashMap<>();
+        Iterator<Map.Entry<String, Double>> itr = map.entrySet().iterator();
+        while(itr.hasNext()){
+            Map.Entry<String, Double> entry = itr.next();
+            values.put(entry.getKey(),entry.getValue()*base_currency_eur);
+        }
+
+        return values;
     }
 }
