@@ -22,6 +22,14 @@ import static com.mongodb.client.model.Updates.*;
 public class MongoDb {
     MongoClient client = MongoClients.create();
 
-    MongoDatabase database = client.getDatabase("test");
-    MongoCollection<Document> toys = database.getCollection("cars");
+    public void test(){
+        MongoDatabase database = client.getDatabase("test");
+        MongoCollection<Document> toys = database.getCollection("cars");
+        Document toy = new Document("name", "yoyo").append("ages", new Document("min", 5));
+        toys.insertOne(toy);
+    }
+
+    public void writeData(double eur, String[] ratesGui){
+
+    }
 }
