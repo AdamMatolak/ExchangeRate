@@ -12,8 +12,10 @@ import com.mongodb.client.result.*;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+import javax.print.Doc;
 import java.util.List;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.ArrayList;
 
 import static com.mongodb.client.model.Filters.*;
@@ -30,6 +32,9 @@ public class MongoDb {
     }
 
     public void writeData(double eur, String[] ratesGui){
-
+        MongoDatabase database = client.getDatabase("exchangerates");
+        MongoCollection<Document> collection = database.getCollection("history");
+        Date currentDate = new Date();
+        Document doc = new Document("date",currentDate.toString()).append("value", eur).append("rates",ratesGui);
     }
 }
