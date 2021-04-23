@@ -34,7 +34,6 @@ public class Main extends Application
 
         launch(args);
         MongoDb database=new MongoDb();
-        database.test();
     }
 
     @Override
@@ -43,7 +42,7 @@ public class Main extends Application
         Parent root = FXMLLoader.load(url);
 
         primaryStage.setTitle("Currency Exchange convertor V 1.0");
-        primaryStage.setScene(new Scene(root, 800, 500));
+        primaryStage.setScene(new Scene(root, 500, 250));
         primaryStage.show();
     }
 }

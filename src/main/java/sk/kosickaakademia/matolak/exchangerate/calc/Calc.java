@@ -1,11 +1,13 @@
 package sk.kosickaakademia.matolak.exchangerate.calc;
 
 import sk.kosickaakademia.matolak.exchangerate.api.Api;
+import sk.kosickaakademia.matolak.exchangerate.database.MongoDb;
 
 import java.util.*;
 
 public class Calc {
-    private static final String[] rates= new String[]{"USD","CZK","HUF","BTC","PLN"};
+    MongoDb mongo=new MongoDb();
+    private static final String[] rates= new String[]{"USD","CZK","HUF","PLN","BTC"};
 
     public void calculate(double eur){
         if(eur<0){
@@ -36,17 +38,16 @@ public class Calc {
             System.out.println("Input param cannot be a negative value!");
             return null;
         }
+        mongo.insertExchangeHistory(base_currency_eur,currency);
         Set<String> set = new HashSet<>();
         Collections.addAll(set, currency);
         Api apiRequest=new Api();
         Map map = apiRequest.getExchangeRates(set);
         Map<String,Double> values = new HashMap<>();
         Iterator<Map.Entry<String, Double>> itr = map.entrySet().iterator();
-        while(itr.hasNext()){
-            Map.Entry<String, Double> entry = itr.next();
-            values.put(entry.getKey(),entry.getValue()*base_currency_eur);
+        for (Map.Entry<String, Double> entry : (Iterable<Map.Entry<String, Double>>) map.entrySet()) {
+            values.put(entry.getKey(), entry.getValue() * base_currency_eur);
         }
-
         return values;
     }
 }
